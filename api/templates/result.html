@@ -1,13 +1,49 @@
-<!doctype html>
-<html>
-   <body>
-      <table border = 1>
-         {% for key, value in result.items() %}
-            <tr>
-               <th> {{ key }} </th>
-               <td> {{ value }} </td>
-            </tr>
-         {% endfor %}
-      </table>
-   </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <h1></h1>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="#">Contributers</a></li>
+        </ul>
+        <label class="switch">
+            <input type="checkbox" id="dark-mode-toggle">
+            <span class="slider"></span>
+        </label>
+    </nav>
+    <div class="center-container">
+        <main class="container">
+            <h1>Issues fetched</h1>
+            <div class="list-issues">
+                <ul class="fetch-list">
+                    {% for issue in issues %}
+                    <a href="{{ issue['link'] }}">
+                        <li>
+                            <h4>Issue No: {{ issue['number'] }}</h4>
+                            <h4>Title: {{ issue['title'] }}</h4>
+                        </li>
+                    </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script>
+        const toggleButton = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+        toggleButton.addEventListener('change', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
 </html>

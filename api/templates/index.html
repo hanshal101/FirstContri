@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <nav>
+    <h1></h1>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="#">Contributers</a></li>
+    </ul>
+    <label class="switch">
+      <input type="checkbox" id="dark-mode-toggle">
+      <span class="slider"></span>
+    </label>
+  </nav>
+  <div class="center-container">
+    <main class="container">
+      <form action="/result" method="post">
+        <h1>Welcome to FirstContri</h1>
+        <br></br>
+        <div class="user-input">
+          <h4>Enter the User or Organization:</h4>
+          <input type="text" name="user-org" placeholder="Eg - nodejs" id="input-one">
+          <h4>Enter repository name:</h4>
+          <input type="text" name="repo" placeholder="Eg - node" id="input-two">
+        </div>
+        <div class="sorting-option">
+          <div class="sub-form">
+            <div class="all-label">
+              <div class="label">
+                <input type="radio" name="inp" value="1" id="option1">
+                <label for="option1">Good First Issue</label>
+              </div>
+              <div class="label">
+                <input type="radio" name="inp" value="3" id="option3">
+                <label for="option3">All issues</label>
+              </div>
+              <div class="label">
+                <input type="radio" name="inp" value="2" id="option2">
+                <label for="option2">Documentation</label>
+              </div>
+            </div>
+            <button type="submit" class="label">Submit</button>
+          </div>
+        </div>
+      </form>
+      
+  <script>
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+    toggleButton.addEventListener('change', () => {
+      body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+
+</html>

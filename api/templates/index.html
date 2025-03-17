@@ -27,7 +27,7 @@
     <main class="container">
       <form action="/result" method="post">
         <h1>Welcome to FirstContri</h1>
-        <br></br>
+        <br> <!-- A tag <br> não precisa ser fechada </br>. Em HTML5, use apenas <br>-->
         <div class="user-input">
           <h4>Enter the User or Organization:</h4>
           <input type="text" name="user-org" placeholder="Eg - nodejs" id="input-one">
@@ -54,7 +54,9 @@
           </div>
         </div>
       </form>
-      
+    </main> <!-- Adicionado fechamento da tag <main> -->
+  </div> <!-- Fechamento correto da div -->
+
   <script>
     const toggleButton = document.getElementById('dark-mode-toggle');
     const body = document.body;
